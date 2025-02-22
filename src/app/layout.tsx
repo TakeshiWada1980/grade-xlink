@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
+import Header from "@/app/_components/Header";
+
 export const metadata: Metadata = {
   title: "GradeXLink",
   description: "...",
@@ -16,10 +22,8 @@ const RootLayout: React.FC<Props> = (props) => {
   return (
     <html lang="ja">
       <body>
-        <header>
-          <div className="bg-slate-800 py-2 font-bold text-white">Header</div>
-        </header>
-        <div>{children}</div>
+        <Header />
+        <div className="mx-4 mt-2 max-w-3xl md:mx-auto">{children}</div>
       </body>
     </html>
   );
