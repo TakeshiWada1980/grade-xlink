@@ -1,0 +1,5 @@
+export const AppErrorCode = {
+  UNKNOWN_ERROR: "UNKNOWN_ERROR",
+  AXIOS_ERROR: "AXIOS_ERROR",
+  UNAUTHORIZED: "UNAUTHORIZED",
+};

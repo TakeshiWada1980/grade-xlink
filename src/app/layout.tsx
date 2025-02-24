@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-import Header from "@/app/_components/Header";
+import { AuthProviderLayer } from "@/app/_components/AuthProviderLayer";
 
 export const metadata: Metadata = {
   title: "GradeXLink",
@@ -18,12 +18,10 @@ type Props = {
 
 const RootLayout: React.FC<Props> = (props) => {
   const { children } = props;
-  const hoge = "";
   return (
     <html lang="ja">
       <body>
-        <Header />
-        <div className="mx-4 mt-2 max-w-3xl md:mx-auto">{children}</div>
+        <AuthProviderLayer>{children}</AuthProviderLayer>
       </body>
     </html>
   );
