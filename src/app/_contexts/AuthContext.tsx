@@ -8,6 +8,8 @@ import { useGetRequest } from "@/app/_hooks/useGetRequest";
 import { logoutAction } from "@/app/_actions/logout";
 import { loginAction } from "@/app/_actions/login";
 import { signupAction } from "@/app/_actions/signup";
+import { redirectAction } from "@/app/_actions/redirect";
+import { revalidateAction } from "../_actions/revalidate";
 
 import { useRouter } from "next/navigation";
 
@@ -41,14 +43,15 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
 
   const logout = useCallback(async () => {
     await logoutAction();
-    mutate();
-    router.replace("/");
-  }, [mutate, router]);
+    await mutate();
+    await revalidateAction("/");
+  }, [mutate]);
 
   const login = useCallback(
     async (loginRequest: LoginRequest) => {
       const authUser = await loginAction(loginRequest);
-      mutate();
+      await mutate();
+      await redirectAction("/dashboard");
       return authUser;
     },
     [mutate]

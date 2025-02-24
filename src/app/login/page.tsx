@@ -38,9 +38,9 @@ const Page: React.FC = () => {
     }
   };
 
-  if (authUser) {
-    redirect("/dashboard");
-  }
+  // if (authUser) {
+  //   redirect("/dashboard");
+  // }
 
   return (
     <main>
